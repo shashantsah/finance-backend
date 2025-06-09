@@ -14,7 +14,12 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+
+app.use(cors({
+  origin: 'https://finance-frontend-chi.vercel.app',
+  credentials: true,
+}));
+// app.use(cors());
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/', authRoutes2);
